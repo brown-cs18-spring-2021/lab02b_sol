@@ -5,34 +5,51 @@ import java.util.List;
 public interface IBST {
 
  /**
-  * Checks the validity of the IBST.
+  * Method to determine if the tree is a valid BST.
   *
-  * @return a boolean indicating whether the tree represented by the IBST
-  *         follows the Binary Search Tree invariant
+  * @return a boolean indicating if the tree is a valid BST.
   */
-  boolean isBST();
-	
-  /**
-   * Inserts an element into the IBST.
-   *
-   * @param n - a Comparable to be inserted to the tree
-   * @return the IBST resulting from inserting n into the current IBST
-   */
-  IBST insert(int n);
+ public boolean isBST();
 
-  /**
-   * Checks whether a specific element is contained within the IBST.
-   *
-   * @param n - The element the user is searching for.
-   * @return true if n is in the IBST, false otherwise.
-   */
-  boolean contains(int n);
-  
-  /**
-   * Turns the IBST into a List of ints.
-   * 
-   * @return a List of only and all the ints contained in the IBST, with the
-   *         right number of duplicates for each.
-   */
-  List<Integer> toList();
+ /**
+  * Method to determine if all values in the tree are less than a value.
+  *
+  * @param val - the upper limit (exclusive) on the values in the tree.
+  * @return a boolean indicating if all values in the tree are less than val.
+  */
+ boolean allLess(int val);
+
+ /**
+  * Method to determine if all values in the tree are greater than or equal to
+  * a value.
+  *
+  * @param val - the lower limit (inclusive) on the values in the tree.
+  * @return a boolean indicating if all values in the tree are greater than or
+  *         equal to val.
+  */
+ boolean allGreaterEq(int val);
+
+ /**
+  * Method to convert an IBST into a List of its elements.
+  *
+  * @return all elements contained in the IBST, in a List.
+  */
+ List<Integer> toList();
+
+ /**
+  * Inserts an element into the IBST.
+  *
+  * @param n - a Comparable to be inserted to the tree
+  * @return the IBST resulting from inserting n into the current IBST
+  */
+ IBST insert(int n);
+
+ /**
+  * Checks whether a specific element is contained within the IBST.
+  *
+  * @param n - The element the user is searching for.
+  * @return true if n is in the IBST, false otherwise.
+  */
+ boolean contains(int n);
+
 }

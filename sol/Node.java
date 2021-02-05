@@ -24,9 +24,32 @@ public class Node implements IBST {
 
   @Override
   public boolean isBST() {
-	return false;
+    return this.left.allLess(this.value) && this.left.isBST()
+            && this.right.allGreaterEq(this.value) && this.right.isBST();
   }
-  
+
+  @Override
+  public boolean allLess(int val) {
+    return this.value < val && this.left.allLess(val) && this.right.allLess(val);
+  }
+
+  @Override
+  public boolean allGreaterEq(int val) {
+    return this.value >= val && this.left.allGreaterEq(val)
+            && this.right.allGreaterEq(val);
+  }
+
+  @Override
+  public List<Integer> toList() {
+    List<Integer> lst = this.left.toList();
+    lst.addAll(this.right.toList());
+    lst.add(this.value);
+    return lst;
+  }
+
+
+
+
   @Override
   public IBST insert(int n) {
     if (n < this.value) {
@@ -46,36 +69,5 @@ public class Node implements IBST {
     } else {
       return this.left.contains(n);
     }
-  }
-  
-  @Override
-  public List<Integer> toList() {
-	return new ArrayList<Integer>();
-  }
-
-  @Override
-  public String toString() {
-    String out = this.value + "\n";
-    out += indentString(this.left.toString()) + "\n";
-    out += indentString(this.right.toString());
-    return out;
-  }
-
-  /**
-   * Helper for toString.
-   *
-   * @param in - the toString representation so far.
-   * @return a properly indented version of in.
-   */
-  public String indentString(String in) {
-    String output = "";
-    String[] lines = in.split("\n");
-
-    for (int i = 0; i < lines.length; i++) {
-      output += "  " + lines[i] + "\n";
-    }
-
-    // removes the last newline
-    return output.substring(0, output.length() - 1);
   }
 }

@@ -3,6 +3,8 @@ package sol;
 import java.util.Collections;
 import java.util.List;
 
+import sol.IBST;
+
 /**
  * Class for your oracle methods.
  */
@@ -32,7 +34,7 @@ public class Oracle {
    *         same elements as list.
    */
   public static boolean bstOracle(IBST tree, List<Integer> list) {
-    return false;
+    return sameElems(tree, list) && tree.isBST();
   }
 
 }

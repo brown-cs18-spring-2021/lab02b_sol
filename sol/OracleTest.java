@@ -38,7 +38,8 @@ public class OracleTest {
     Leaf1 bt = new Leaf1();
     List<Integer> emptyList = new LinkedList<Integer>();
 
-    // TODO: Add a checkExpect
+    t.checkExpect(Oracle.bstOracle(bt, emptyList));
+
   }
 
   /**
@@ -61,7 +62,7 @@ public class OracleTest {
     elems.add(5);
     elems.add(5);
 
-    // TODO: Add a checkExpect
+    t.checkExpect(Oracle.bstOracle(bt, elems));
   }
 
   /**
@@ -71,9 +72,9 @@ public class OracleTest {
    *
    *          ........5.............................................|
    *          ...../.....\..........................................|
-   *          ....3.......7.......................................|
-   *          .../.\................................................|
-   *          .()...4...............................................|
+   *          ....3.......7.........................................|
+   *          .../.\...../.\........................................|
+   *          .()...4...().().......................................|
    */
   public void testBST2(Tester t) {
     Node1 bt =
@@ -83,7 +84,7 @@ public class OracleTest {
     elems.add(4);
     elems.add(5);
 
-    // TODO: Add a checkExpect
+    t.checkExpect(!Oracle.bstOracle(bt, elems));
   }
 
   /**
@@ -106,7 +107,7 @@ public class OracleTest {
     elems.add(6);
     elems.add(7);
 
-    // TODO: Add a checkExpect
+    t.checkExpect(!Oracle.bstOracle(bt, elems));
   }
 
   /**
@@ -129,7 +130,7 @@ public class OracleTest {
     elems.add(5);
     elems.add(7);
 
-    // TODO: Add a checkExpect
+    t.checkExpect(!Oracle.bstOracle(bt, elems));
   }
 
   /**
@@ -152,7 +153,7 @@ public class OracleTest {
     elems.add(5);
     elems.add(7);
 
-    // TODO: Add a checkExpect
+    t.checkExpect(!Oracle.bstOracle(bt, elems));
   }
   
   public static void main(String[] args) {
